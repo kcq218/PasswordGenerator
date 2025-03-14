@@ -398,3 +398,4 @@ FodyWeavers.xsd
 
 # JetBrains Rider
 *.sln.iml
+/PasswordGenerator/PasswordGenerator/Properties/launchSettings.json
