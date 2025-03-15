@@ -1,14 +1,15 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using PasswordGenerator.Model;
 using System.Linq.Expressions;
 
 namespace PasswordGenerator.DAL
 {
     public class Repository<T> : IRepository<T> where T : class
     {
-        private readonly DbContext _context;
+        private readonly IDbContext _context;
         private readonly DbSet<T> _dbSet;
 
-        public Repository(DbContext context)
+        public Repository(IDbContext context)
         {
             _context = context;
             _dbSet = _context.Set<T>();

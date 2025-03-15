@@ -4,9 +4,14 @@ namespace PasswordGenerator.DAL
 {
     public class UnitOfWork : IUnitOfWork
     {
-        private DbAll01ProdUswest001Context _context = new DbAll01ProdUswest001Context();
+        private readonly IDbContext _context;
+        public UnitOfWork(IDbContext context)
+        {
 
-        public IRepository<Model.PasswordGenerator> UserBucketRepository => new Repository<Model.PasswordGenerator>(_context);
+            _context = context;
+        }
+
+        public IRepository<Model.PasswordGenerator> PasswordGeneratorRepository => new Repository<Model.PasswordGenerator>(_context);
 
         public void Save()
         {
