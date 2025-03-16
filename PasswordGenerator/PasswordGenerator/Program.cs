@@ -30,7 +30,7 @@ while (programLoop)
     Console.WriteLine("Please enter length of Password");
     var length = Console.ReadLine();
 
-    while ( !length.All(char.IsDigit) || Convert.ToInt32(length) < Constants.NumberOfRules || Convert.ToInt32(length) > Constants.MaxLength)
+    while (!length.All(char.IsDigit) || Convert.ToInt32(length) < Constants.NumberOfRules || Convert.ToInt32(length) > Constants.MaxLength)
     {
         Console.WriteLine("Please enter a real number between 4 and 50");
         length = Console.ReadLine();
