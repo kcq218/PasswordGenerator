@@ -4,8 +4,14 @@
     {
         public Task<string> Generate(int passwordLength, List<AbstractOption> options);
 
-        public void GetLengthOfCharacters(List<AbstractOption> options);
+        public void SetLengthOfCharacters(List<AbstractOption> options);
 
-        public Task<string> SetPassword(List<string> characters);
+        public string SetCharacters(List<AbstractOption> options, int passwordLength);
+
+        public Task<bool> PasswordExists(string password);
+
+        public string Shuffle(string characters, int length);
+        public string ShuffleWithoutRepeat(string characters, int length);
+
     }
 }

@@ -5,6 +5,6 @@ namespace PasswordGenerator.Services
     {
         public abstract int Length { get; set; }
         public abstract bool Included { get; set; }
-        public abstract string Characters { get; set; }
+        public abstract string Characters();
     }
 }
