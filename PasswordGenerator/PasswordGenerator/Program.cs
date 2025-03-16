@@ -30,20 +30,24 @@ while (programLoop)
     Console.WriteLine("Please enter length of Password");
     var length = Console.ReadLine();
 
-    while (Convert.ToInt32(length) < Constants.NumberOfRules || Convert.ToInt32(length) > Constants.MaxLength)
+    while ( !length.All(char.IsDigit) || Convert.ToInt32(length) < Constants.NumberOfRules || Convert.ToInt32(length) > Constants.MaxLength)
     {
-        Console.WriteLine("Please enter a number between 4 and 50");
+        Console.WriteLine("Please enter a real number between 4 and 50");
         length = Console.ReadLine();
     }
 
-    Console.WriteLine("Enter y if you want uppercase");
-    uppercase.Included = Console.ReadLine().ToLower() == "y";
-    Console.WriteLine("Enter y if you want lowerCase");
-    lowercase.Included = Console.ReadLine().ToLower() == "y";
-    Console.WriteLine("Enter y if you want numbers");
-    numbers.Included = Console.ReadLine().ToLower() == "y";
-    Console.WriteLine("Enter y if you want symbols");
-    symbols.Included = Console.ReadLine().ToLower() == "y";
+    while (!symbols.Included && !uppercase.Included && !lowercase.Included && !numbers.Included)
+    {
+        Console.WriteLine("Please enter y for at least one of the following options");
+        Console.WriteLine("Enter y if you want uppercase");
+        uppercase.Included = Console.ReadLine().ToLower() == "y";
+        Console.WriteLine("Enter y if you want lowerCase");
+        lowercase.Included = Console.ReadLine().ToLower() == "y";
+        Console.WriteLine("Enter y if you want numbers");
+        numbers.Included = Console.ReadLine().ToLower() == "y";
+        Console.WriteLine("Enter y if you want symbols");
+        symbols.Included = Console.ReadLine().ToLower() == "y";
+    }
 
     options.Add(uppercase);
     options.Add(lowercase);
